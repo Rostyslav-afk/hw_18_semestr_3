@@ -27,6 +27,7 @@ item.forEach((element) => {
 //#2 В HTML є пустий список ul#ingredients.
 //В JS є масив рядків.
 //Напиши скрипт, який для кожного елемента масиву ingredients створить окремий li, після чого вставить всі li за одну операцію в список ul.ingredients. Для створення DOM-вузлів використовуй document.createElement().
+console.log("2 Завдання");
 
 const ingredients = [
     'Картопля',
@@ -47,4 +48,45 @@ const listItems = ingredients.map((ingredient) => {
 });
 
 ul.append(...listItems);
+
+
+//#3 Напиши скрипт для створення галереї зображень по масиву даних.
+//В HTML є список ul#gallery.
+
+//Використовуй масив об'єктів images для створення тегів img вкладених в li. Для створення розмітки використовуй шаблонні рядки і insertAdjacentHTML().
+
+// Всі елементи галереї повинні додаватися в DOM за одну операцію вставки.
+
+// Додай мінімальне оформлення галереї флексбоксами або грід через css-класи.
+console.log("3 Завдання");
+
+const images = [
+    {
+        url:
+            'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        alt: 'White and Black Long Fur Cat',
+    },
+    {
+        url:
+            'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+    },
+    {
+        url:
+            'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        alt: 'Group of Horses Running',
+    },
+];
+
+const list = document.querySelector("#gallery");
+
+const markup = images
+    .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}" width="300"></li>`)
+    .join("");
+
+list.insertAdjacentHTML("beforeend", markup);
+
+// Мінімальне CSS оформлення (можеш вставити в <style> або CSS-файл)
+list.style.display = "flex";
+list.style.gap = "20px";
 
