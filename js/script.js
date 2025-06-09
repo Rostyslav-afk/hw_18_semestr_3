@@ -86,7 +86,23 @@ const markup = images
 
 list.insertAdjacentHTML("beforeend", markup);
 
-// Мінімальне CSS оформлення (можеш вставити в <style> або CSS-файл)
 list.style.display = "flex";
 list.style.gap = "20px";
 
+//#4
+const value = document.querySelector("#value");
+let counterValue = 0;
+function increment() {
+    counterValue += 1;
+    newElement();
+};
+function decrement() {
+    counterValue -= 1;
+    newElement();
+};
+function newElement() {
+    value.textContent = counterValue;
+};
+
+document.querySelector('[data-action="increment"]').addEventListener("click", increment);
+document.querySelector('[data-action="decrement"]').addEventListener("click", decrement);
